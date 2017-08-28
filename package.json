@@ -1,0 +1,30 @@
+{
+  "name": "HandyNote",
+  "version": "1.0.0",
+  "description": "HandyNote Wrapper Project",
+  "author": "Jin Ke <jinkebj@126.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "npm run start-service && npm run start-web",
+    "start-service": "pm2 start dist/hnservice.js",
+    "start-web": "pm2 serve dist/hnweb 9080",
+    "stop": "pm2 stop all",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "kcors": "^2.2.1",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-router": "^7.2.1",
+    "mongoose": "^4.11.1",
+    "pm2": "^2.6.1",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "shelljs": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=7.6.x"
+  }
+}
