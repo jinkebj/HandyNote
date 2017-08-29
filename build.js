@@ -33,7 +33,8 @@ shell.mkdir('-p', 'HandyNote/dist')
 // build HandyNote-Service
 console.log('=== start build HandyNote-Service ===')
 shell.cd('HandyNote-Service')
-if (shell.exec('npm install && npm run build').code !== 0) {
+if (shell.exec('export HANDYNOTE_MONGO_URL=' + process.env.HANDYNOTE_MONGO_URL
+    + ' && npm install && npm run build').code !== 0) {
   shell.echo('Error: build HandyNote-Service failed')
   shell.exit(1)
 }
@@ -44,7 +45,8 @@ console.log('=== finish build HandyNote-Service ===')
 // build HandyNote-Web
 console.log('=== start build HandyNote-Web ===')
 shell.cd('HandyNote-Web')
-if (shell.exec('npm install && npm run build').code !== 0) {
+if (shell.exec('export HANDYNOTE_SERVICE_API=' + process.env.HANDYNOTE_SERVICE_API
+    + ' && npm install && npm run build').code !== 0) {
   shell.echo('Error: build HandyNote-Web failed')
   shell.exit(1)
 }
