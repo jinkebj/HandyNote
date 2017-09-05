@@ -32,6 +32,17 @@ listen: refreshFolderList(selectedFolderId)
 emit: refreshNoteList(selectedFolderId, selectedNoteId)
 ```
 
+### el-tree Node Structure
+```
+folderRoot: {
+  type: 0, // only set for root node
+  id: '{ownerid}-Root',
+  label: 'My Folders',
+  ancestor_ids: [],
+  children: []
+}
+```
+
 ### Build Env
 ```
 HANDYNOTE_SERVICE_PORT
