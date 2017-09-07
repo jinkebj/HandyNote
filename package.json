@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm run start-service && npm run start-web",
     "start-service": "pm2 start dist/hnservice.js",
-    "start-web": "pm2 serve dist/hnweb 9080",
+    "start-web": "pm2 start dist/hnweb.js",
     "stop": "pm2 stop all",
     "build": "node build.js"
   },
@@ -17,6 +17,7 @@
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
     "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
     "mongoose": "^4.11.1",
     "pm2": "^2.6.1",
     "uuid": "^3.1.0"

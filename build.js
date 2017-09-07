@@ -51,5 +51,8 @@ if (shell.exec('export HANDYNOTE_SERVICE_API=' + process.env.HANDYNOTE_SERVICE_A
   shell.exit(1)
 }
 shell.cp('-r', 'dist/', '../HandyNote/dist/hnweb')
+shell.cp('../HandyNote/hnweb.js', '../HandyNote/dist')
 shell.cd('..')
 console.log('=== finish build HandyNote-Web ===')
+
+console.log('=== finish build HandyNote ===')
