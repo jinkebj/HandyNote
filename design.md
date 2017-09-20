@@ -30,6 +30,19 @@ emit: refreshFolderList(selectedFolderId)
 NoteFolder:
 listen: refreshFolderList(selectedFolderId)
 emit: refreshNoteList(selectedFolderId, selectedNoteId)
+
+Header:
+emit: switchViewType(viewType)
+
+Layout:
+listen: switchViewType(viewType) // 1: 1 column, 2: 2 columns, 3: 3 columns
+```
+
+### HandyNote-Web Local Storage
+```
+hn-pane-sizes: array of 3 column size, eg: [12, 20, 68]
+hn-token: current user token (expire in 1 day)
+hn-user: current user name
 ```
 
 ### el-tree Node Structure
@@ -45,9 +58,11 @@ folderRoot: {
 
 ### Build Env
 ```
+# for build HandyNote-Service
 HANDYNOTE_SERVICE_PORT
 HANDYNOTE_MONGO_URL
 
-HANDYNOTE_WEB_PORT
+# for build HandyNote-Web
+HANDYNOTE_WEB_PORT (only used by dev mode)
 HANDYNOTE_SERVICE_API
 ```
