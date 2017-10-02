@@ -52,7 +52,9 @@ folderRoot: {
   id: '{ownerid}-Root',
   label: 'My Folders',
   ancestor_ids: [],
-  children: []
+  children: [],
+  note_count_cur: 0, // count of notes under current folder
+  note_count_all: 0 // count of notes under current folder and all sub folders
 }
 ```
 
