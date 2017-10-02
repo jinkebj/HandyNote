@@ -4,7 +4,7 @@
 ```
 Root Folder id: {ownerid}-Root
 Root Folder name: My Folders
-Special folder: {ownerid}-Recent {ownerid}-Trash
+Special folder: {ownerid}-Recent {ownerid}-Starred {ownerid}-Trash
 ```
 
 ### Simplify Trash Rule
@@ -20,6 +20,7 @@ emit: deleteNote(noteId)
 NoteList:
 listen: refreshNoteList(selectedFolderId, selectedNoteId)
           selectedFolderId === '{ownerid}-Recent' means load recent notes
+          selectedFolderId === '{ownerid}-Starred' means load starred notes
           selectedFolderId === '{ownerid}-Trash' means load trash
           selectedNoteId === '' means select the first note
 listen: updateNote(noteData)
