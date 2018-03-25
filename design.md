@@ -39,6 +39,16 @@ Layout:
 listen: switchViewType(viewType) // 1: 1 column, 2: 2 columns, 3: 3 columns
 ```
 
+### HandyNote-Mobile Message System
+```
+TopBar:
+emit: syncFinished
+
+NoteList:
+FolderList:
+listen: syncFinished
+```
+
 ### HandyNote-Web Local Storage
 ```
 hn-pane-sizes: array of 3 column size, eg: [12, 20, 68]
@@ -64,8 +74,9 @@ folderRoot: {
 # for build HandyNote-Service
 HANDYNOTE_SERVICE_PORT
 HANDYNOTE_MONGO_URL
+HANDYNOTE_STATIC_ROOT
 
-# for build HandyNote-Web
-HANDYNOTE_WEB_PORT (only used by dev mode)
+# for build HandyNote-Web & HandyNote-Mobile
+HANDYNOTE_WEB_PORT (only apply for debug mode)
 HANDYNOTE_SERVICE_API
 ```
