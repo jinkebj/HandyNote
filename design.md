@@ -14,6 +14,7 @@ if sub item(note or folder) & parent folder both got deleted, treat them as one 
 ```
 NoteDetail:
 listen: loadNoteWithId(noteId) // noteId === '' means no content
+listen: showImgDetail(src)
 emit: updateNote(noteData)
 emit: deleteNote(noteId)
 
@@ -31,6 +32,9 @@ emit: refreshFolderList(selectedFolderId)
 NoteFolder:
 listen: refreshFolderList(selectedFolderId)
 emit: refreshNoteList(selectedFolderId, selectedNoteId)
+
+ImageHandler:
+emit: showImgDetail(src)
 
 Header:
 emit: switchViewType(viewType)
