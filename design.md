@@ -46,20 +46,34 @@ Layout:
 listen: switchViewType(viewType) // 1: 1 column, 2: 2 columns, 3: 3 columns
 ```
 
+### HandyNote-Web Local Storage
+```
+hn-pane-sizes: array of 3 column size, eg: [17, 23, 60]
+hn-token: current user token (expire in 30 days)
+hn-user: current user name
+```
+
 ### HandyNote-Mobile Message System
 ```
 TopBar:
 emit: syncFinished
 
 NoteList:
+listen: syncFinished
+
 FolderList:
 listen: syncFinished
+
+ImageHandler:
+emit: showImgDetail(src)
+
+NoteDetail:
+listen: showImgDetail(src)
 ```
 
-### HandyNote-Web Local Storage
+### HandyNote-Mobile Local Storage
 ```
-hn-pane-sizes: array of 3 column size, eg: [12, 20, 68]
-hn-token: current user token (expire in 1 day)
+hn-token: current user token (expire in 30 days)
 hn-user: current user name
 ```
 
