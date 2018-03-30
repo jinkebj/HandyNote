@@ -36,6 +36,9 @@ emit: refreshNoteList(selectedFolderId, selectedNoteId)
 ImageHandler:
 emit: showImgDetail(src)
 
+ImageDetail:
+emit to parent component: updateImage
+
 Header:
 emit: switchViewType(viewType)
 
