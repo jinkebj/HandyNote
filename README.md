@@ -2,15 +2,15 @@
 
 HandyNote project contain the following independent repository:
 
-- HandyNote - Overall info & release wrapper for HandyNote project
+- [HandyNote](https://github.com/jinkebj/HandyNote) - Overall info & release wrapper for HandyNote project
 
-- HandyNote-Service - Provide restful/streaming API for HandyNote-Web, HandyNote-Mobile & HandyNote-Desktop
+- [HandyNote-Service](https://github.com/jinkebj/HandyNote-Service) - Provide restful/streaming API for HandyNote-Web, HandyNote-Mobile & HandyNote-Desktop
 
-- HandyNote-Web - HandyNote Web App
+- [HandyNote-Web](https://github.com/jinkebj/HandyNote-Web) - HandyNote Web App
 
-- HandyNote-Mobile - HandyNote Mobile App, support Android & iOS
+- [HandyNote-Mobile](https://github.com/jinkebj/HandyNote-Mobile) - HandyNote Mobile App, support both Android & iOS
 
-- HandyNote-Desktop - HandyNote Desktop App, support Mac / Linux / Windows
+- HandyNote-Desktop - HandyNote Desktop App, support Mac / Linux / Windows (NOT started yet)
 
 ## Quick Start
 

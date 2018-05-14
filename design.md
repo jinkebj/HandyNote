@@ -46,15 +46,28 @@ Layout:
 listen: switchViewType(viewType) // 1: 1 column, 2: 2 columns, 3: 3 columns
 ```
 
-### HandyNote-Web Local Storage
-```
-hn-pane-sizes: array of 3 column size, eg: [17, 23, 60]
-hn-token: current user token (expire in 30 days)
-hn-user: current user name
-```
-
 ### HandyNote-Mobile Message System
 ```
+FolderItem:
+emit: refreshFolderList
+listen: refreshFolderList (pop up event to parent component: FolderItem or FolderList)
+
+FolderList:
+listen: refreshFolderList
+
+FolderSelectItem:
+emit: selectFolder(folderId)
+listen: selectFolder(folderId) (pop up event to parent component: FolderItem or FolderList)
+
+FolderSelect:
+listen: selectFolder(folderId)
+
+ImageHandler:
+emit: showImgDetail(src)
+
+NoteDetail:
+listen: showImgDetail(src)
+
 TopBar:
 emit: syncFinished
 
@@ -63,21 +76,22 @@ listen: syncFinished
 
 FolderList:
 listen: syncFinished
+```
 
-ImageHandler:
-emit: showImgDetail(src)
-
-NoteDetail:
-listen: showImgDetail(src)
+### HandyNote-Web Local Storage
+```
+hn-pane-sizes: array of 3 column size percentage, default value: [17, 23, 60]
+hn-token: current user token
+hn-user: current user name
 ```
 
 ### HandyNote-Mobile Local Storage
 ```
-hn-token: current user token (expire in 30 days)
+hn-token: current user token
 hn-user: current user name
 ```
 
-### el-tree Node Structure
+### HandyNote-Web el-tree Node Structure
 ```
 folderRoot: {
   type: 0, // only set for root node
