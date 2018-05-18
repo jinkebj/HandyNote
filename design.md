@@ -89,6 +89,7 @@ hn-user: current user name
 ```
 hn-token: current user token
 hn-user: current user name
+hn-local-usn: local update sequence number for current user
 ```
 
 ### HandyNote-Web el-tree Node Structure
