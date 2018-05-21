@@ -8,7 +8,8 @@
   "scripts": {
     "start": "pm2 start pm2.json",
     "stop": "pm2 stop pm2.json",
-    "build": "node build.js"
+    "build": "node build.js",
+    "release": "node release.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -25,6 +26,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "bestzip": "^1.1.4",
     "shelljs": "^0.6.0"
   },
   "engines": {

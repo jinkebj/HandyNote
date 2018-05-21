@@ -118,7 +118,7 @@ export HANDYNOTE_SERVICE_API=http://IP:Port/api
 export HANDYNOTE_MONGO_URL=mongodb://{usr}:{pwd}@{ip}/HandyNote
 export HANDYNOTE_STATIC_ROOT=/home/xxx/xxx
 
-# build release version for HandyNote-Service & HandyNote-Web
+# build distribution file for HandyNote-Service & HandyNote-Web
 npm run build
 
 # start HandyNote-Service & HandyNote-Web in production mode
@@ -126,4 +126,7 @@ npm start
 
 # stop HandyNote-Service & HandyNote-Web
 npm stop
+
+# release zip file for HandyNote-Service & HandyNote-Web
+npm run release
 ```
