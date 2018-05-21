@@ -1,0 +1,12 @@
+{
+  "apps" : [
+    {
+      "name": "hnservice",
+      "script": "./dist/hnservice.js"
+    },
+    {
+      "name": "hnweb",
+      "script": "./dist/hnweb.js"
+    }
+  ]
+}
