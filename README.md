@@ -95,12 +95,44 @@ HandyNote project contains the following independent repository:
 
 - [HandyNote-Desktop](https://github.com/jinkebj/HandyNote-Desktop) - HandyNote Desktop App, support Mac / Linux / Windows **(NOT start yet)**
 
-## Software Requirements
+## Setup your own handynote software stack in 10 minutes
 
-- [Node.js 8.x or above](https://nodejs.org)
-- [MongoDB 3.2 or above](https://www.mongodb.com)
+#### 1. Install [MongoDB 3.2 or above](https://www.mongodb.com) and create initial data
+```
+a. run mongodb without authenticate
+    nohup mongod --dbpath /data/mongodata &
+```
+```
+b. connect with mongo client to create user
+    mongo
+    use HandyNote
+    db.createUser({
+            "user": "handy",
+            "pwd": "xxxxx",
+            "roles": [
+                {
+                    "role" : "readWrite",
+                    "db" : "HandyNote"
+                }
+            ]
+        })
+    db.users.save({_id:"mytest",password:"xxxxx",usn:1})
+    exit
+```
 
-## Quick Start
+#### 2. Install [Node.js 8.x or above](https://nodejs.org)
+
+#### 3. Download [HandyNote release file](https://github.com/jinkebj/HandyNote/raw/master/release/handynote.zip), unzip it to /data/HandyNote and run following cmd:
+```
+cd /data/HandyNote
+npm install --production
+npm start
+```
+##### Note: [HandyNote release file](https://github.com/jinkebj/HandyNote/raw/master/release/handynote.zip) is only for test purpose, for production use, please run mongod with --auth and build your own release file according to section "Build & Release"
+
+#### 4. Visit http://your_ip:9080, login with mytest/xxxxx
+
+## Build & Release
 
 ``` bash
 # Optional, set npm mirror to speed up npm install in China
