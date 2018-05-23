@@ -90,6 +90,7 @@ hn-user: current user name
 hn-token: current user token
 hn-user: current user name
 hn-local-usn: local update sequence number for current user
+hn-base-api-url: base api url of connected HandyNote-Service
 ```
 
 ### HandyNote-Web el-tree Node Structure
@@ -115,4 +116,31 @@ HANDYNOTE_STATIC_ROOT
 # for build HandyNote-Web & HandyNote-Mobile
 HANDYNOTE_WEB_PORT (only apply for debug mode)
 HANDYNOTE_SERVICE_API
+```
+
+### Sync Mechanism
+
+DB schema:
+```
+1. collection "notes", "folders", "users" have a field "usn" (update sequence number)
+2. each time note/folder got created/updated/deleted, get new usn value by increase "users -> usn"
+3. also save this new usn to note/folder who got created/updated/deleted
+```
+
+HandyNote-Service API:
+```
+1. GET /notes?skip_usn={num} to return notes with usn > skip_usn
+2. GET /folders?skip_usn={num} to return folders with usn > skip_usn
+3. GET /profiles return fields "latestUsn" to indicate the latest update sequence number on server
+4. POST /notes/action with {action: "filter_non_exist", ids: "xxx,yyy"} to get non-exist node id from the given ids
+5. POST /folders/action with {action: "filter_non_exist", ids: "xxx,yyy"} to get non-exist folder id from the given ids
+```
+
+HandyNote-Mobile:
+```
+1. use local storage "hn-local-usn" to save local update sequence number for current user
+2. compare local usn with server usn to determin if local data is up-to-date
+3. get non-exist notes/folders in local data via HandyNote-Service API and delete them
+4. get notes/folders with usn > hn-local-usn via HandyNote-Service API and update them to local data
+5. update "hn-local-usn" to server "latestUsn"
 ```

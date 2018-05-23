@@ -8,6 +8,7 @@
   "scripts": {
     "start": "pm2 start pm2.json",
     "stop": "pm2 stop pm2.json",
+    "remove": "pm2 delete pm2.json",
     "build": "node build.js",
     "release": "node release.js"
   },
