@@ -1,6 +1,6 @@
 # HandyNote
 
-HandyNote provide full stack open source solution for personal knowledge management. It contains the following independent repository:
+HandyNote provide full stack open source solution for note taking and personal knowledge management. It contains the following independent repository:
 
 - [HandyNote](https://github.com/jinkebj/HandyNote) - Overall info & release wrapper for HandyNote
 
@@ -12,7 +12,11 @@ HandyNote provide full stack open source solution for personal knowledge managem
 
 - [HandyNote-Desktop](https://github.com/jinkebj/HandyNote-Desktop): Desktop app for HandyNote, support Mac / Linux / Windows **(NOT started yet)**
 
-<center><img src="doc/hn-architect.png" alt="Architect"></center>
+![](doc/hn-architect.png)
+
+## Why create HandyNote
+
+I used to use Evernote, then switch to Youdao Note, then switch to WizNote. They are both awesome but none of them can provide all features I need and it's a pain to migrate data for switch one note solution to another. I want a full stack solution which can address all my current requirements and easily extended to support future possible requirement without worry about data migration. That's the intention of create HandyNote.
 
 ## Features
 
@@ -176,3 +180,7 @@ npm run remove
 # release zip file for HandyNote-Service & HandyNote-Web
 npm run release
 ```
+
+## Others
+
+- [design doc](https://github.com/jinkebj/HandyNote/blob/master/doc/design.md)
