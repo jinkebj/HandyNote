@@ -12,6 +12,8 @@ HandyNote provide full stack open source solution for personal knowledge managem
 
 - [HandyNote-Desktop](https://github.com/jinkebj/HandyNote-Desktop): Desktop app for HandyNote, support Mac / Linux / Windows **(NOT started yet)**
 
+<center><img src="doc/hn-architect.png" alt="Architect"></center>
+
 ## Features
 
 - 100% control on your personal data (support private cloud or self-hosted server)
