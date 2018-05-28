@@ -103,49 +103,29 @@ b. connect with mongo client to create HandyNote user
     db.users.save({_id:"mytest",password:"xxxxx",usn:1})
     exit
 ```
+###### Note: For production use, please do remember to restart mongod with --auth
 
 #### 2. Install [Node.js 8.x or above](https://nodejs.org)
 
-#### 3. Download [HandyNote release file](https://github.com/jinkebj/HandyNote/raw/master/release/handynote.zip), unzip it to /data/HandyNote and run following cmd:
+#### 3. Prepare HandyNote release file
+- For test purpose - [Download pre-built release file](https://github.com/jinkebj/HandyNote/raw/master/release/handynote.zip)
+- For production use - [Build your own release file](https://github.com/jinkebj/HandyNote/blob/master/doc/production-deployment.md)
+
+then, unzip release file to /data/HandyNote and run following cmd:
 ```
 cd /data/HandyNote
 npm install --production
 npm start
 ```
-##### Note: [HandyNote release file](https://github.com/jinkebj/HandyNote/raw/master/release/handynote.zip) is only for test purpose, for production use, please run mongodb without authentication to create mongodb user, then run mongod with --auth and build your own release file according to section ["Build & Release"](https://github.com/jinkebj/HandyNote#build--release)
-```
-a. run mongodb without authentication and create mongodb user
-    mongo
-    use HandyNote
-    db.createUser({
-        "user": "handy",
-        "pwd": "xxxxx",
-        "roles": [
-            {
-                "role" : "readWrite",
-                "db" : "HandyNote"
-            }
-        ]
-        })
-    exit
-```
-```
-b. stop mongodb and restart with authentication
-    mongo
-    use admin
-    db.shutdownServer()
-    exit
-    mongod --dbpath /data/mongodata --auth &
-```
 
-#### 4. Visit http://your_ip:9080, login with HandyNote user created in Step 1
+#### 4. Visit http://{ip}:9080, login with HandyNote user created in Step 1
 
-#### 5. For android phone, install [HandyNote android app](https://github.com/jinkebj/HandyNote/raw/master/release/handynote-android.apk), on login page -> switch server -> input HandyNote service url with format http://your_ip:3000/api and press "SWITCH" button
+#### 5. For android phone, install [HandyNote android app](https://github.com/jinkebj/HandyNote/raw/master/release/handynote-android.apk), on login page -> switch server -> input HandyNote service url with format http://{ip}:3000/api and press "SWITCH" button
 
 <img src="screenshots/hn-android-switch-server.jpg" alt="NoteAction" width="280" height="500">&nbsp;&nbsp;&nbsp;
 <img src="screenshots/hn-android-switch-server2.jpg" alt="EditFolder" width="280" height="500"><br>
 
-#### 6. For iPhone, the HandyNote app has not published to apple app store yet, but you can follow https://github.com/jinkebj/HandyNote-Mobile/blob/master/README.md#debug-on-ios to install debug version on your iPhone for test
+#### 6. For iPhone, the HandyNote app has not published to apple app store yet, but you can follow https://github.com/jinkebj/HandyNote-Mobile/blob/master/README.md#debug-on-ios to install debug version on your iPhone, then switch server like Step 5
 
 ## Build & Release
 
@@ -183,4 +163,5 @@ npm run release
 
 ## Others
 
-- [design doc](https://github.com/jinkebj/HandyNote/blob/master/doc/design.md)
+- [Design Ideas](https://github.com/jinkebj/HandyNote/blob/master/doc/design.md)
+- [Production Deployment](https://github.com/jinkebj/HandyNote/blob/master/doc/production-deployment.md)
