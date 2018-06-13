@@ -4,7 +4,7 @@
 ```
 Root Folder id: {ownerid}-Root
 Root Folder name: My Folders
-Special folder: {ownerid}-Recent {ownerid}-Starred {ownerid}-Trash
+Special folder: {ownerid}-Search {ownerid}-Recent {ownerid}-Starred {ownerid}-Trash
 ```
 
 ### Simplify Trash Rule
@@ -26,11 +26,14 @@ listen: refreshNoteList(selectedFolderId, selectedNoteId)
           selectedNoteId === '' means select the first note
 listen: updateNote(noteData)
 listen: deleteNote(noteId)
+listen: searchNote(searchStr)
 emit: loadNoteWithId(noteId)
 emit: refreshFolderList(selectedFolderId)
 
 NoteFolder:
 listen: refreshFolderList(selectedFolderId)
+listen: selectSearch(searchStr)
+emit: searchNote(searchStr)
 emit: refreshNoteList(selectedFolderId, selectedNoteId)
 
 ImageHandler:
@@ -41,6 +44,7 @@ emit to parent component: updateImage
 
 Header:
 emit: switchViewType(viewType)
+emit: selectSearch(searchStr)
 
 Layout:
 listen: switchViewType(viewType) // 1: 1 column, 2: 2 columns, 3: 3 columns
