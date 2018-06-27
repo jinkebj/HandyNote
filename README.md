@@ -111,7 +111,10 @@ b. connect with mongo client to create HandyNote user
 - For test purpose - [Download pre-built release file](https://github.com/jinkebj/HandyNote/raw/master/release/handynote.zip)
 - For production use - [Build your own release file](https://github.com/jinkebj/HandyNote/blob/master/doc/production-deployment.md)
 
-then, unzip release file to /data/HandyNote and run following cmd:
+then, unzip release file to /data/HandyNote
+- For production use - if you want HandyNote-Web run under https, please rename ssl key & cert file to server.key & server.pem then put it to /data/HandyNote/handynote-cert
+
+then, run following cmd:
 ```
 cd /data/HandyNote
 npm install --production
@@ -120,7 +123,7 @@ npm start
 
 #### 4. Visit http://{ip}:9080, login with HandyNote user created in Step 1
 
-#### 5. For android phone, install [HandyNote android app](https://github.com/jinkebj/HandyNote/raw/master/release/handynote-android.apk), on login page -> switch server -> input HandyNote service url with format http://{ip}:3000/api and press "SWITCH" button
+#### 5. For android phone, install [HandyNote android app](https://github.com/jinkebj/HandyNote/raw/master/release/handynote-android.apk), on login page -> switch server -> input HandyNote service url with format http(s)://{ip}:3000/api and press "SWITCH" button
 
 <img src="screenshots/hn-android-switch-server.jpg" alt="NoteAction" width="280" height="500">&nbsp;&nbsp;&nbsp;
 <img src="screenshots/hn-android-switch-server2.jpg" alt="EditFolder" width="280" height="500"><br>
@@ -136,12 +139,18 @@ npm config set registry https://registry.npm.taobao.org
 # install dependencies
 npm install
 
+# Optional, set HANDYNOTE_CERT_PATH
+# if set, HandyNote-Service will run under https server
+#     please rename ssl key & cert file to server.key & server.pem then put it under HANDYNOTE_CERT_PATH
+# if not set, HandyNote-Service will run under http server
+export HANDYNOTE_CERT_PATH=/home/xxx/xxx
+
 # set HANDYNOTE_SERVICE_API, HANDYNOTE_MONGO_URL & HANDYNOTE_STATIC_ROOT
 # if not set, will use:
 #     HANDYNOTE_SERVICE_API=http://localhost:3000/api
 #     HANDYNOTE_MONGO_URL=mongodb://localhost/HandyNote
 #     HANDYNOTE_STATIC_ROOT=./handynote-static
-export HANDYNOTE_SERVICE_API=http://IP:Port/api
+export HANDYNOTE_SERVICE_API=http(s)://IP:Port/api
 export HANDYNOTE_MONGO_URL=mongodb://{usr}:{pwd}@{ip}/HandyNote
 export HANDYNOTE_STATIC_ROOT=/home/xxx/xxx
 

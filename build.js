@@ -35,6 +35,7 @@ console.log('=== start build HandyNote-Service ===')
 shell.cd('HandyNote-Service')
 if (shell.exec('export HANDYNOTE_MONGO_URL=' + (process.env.HANDYNOTE_MONGO_URL || 'mongodb://localhost/HandyNote')
   + ' && export HANDYNOTE_STATIC_ROOT=' + (process.env.HANDYNOTE_STATIC_ROOT || './handynote-static')
+  + ' && export HANDYNOTE_CERT_PATH=' + (process.env.HANDYNOTE_CERT_PATH || '')
   + ' && npm install && npm run build').code !== 0) {
   shell.echo('Error: build HandyNote-Service failed')
   shell.exit(1)
@@ -47,7 +48,7 @@ console.log('=== finish build HandyNote-Service ===')
 console.log('=== start build HandyNote-Web ===')
 shell.cd('HandyNote-Web')
 if (shell.exec('export HANDYNOTE_SERVICE_API=' + (process.env.HANDYNOTE_SERVICE_API || 'http://localhost:3000/api')
-    + ' && npm install && npm run build').code !== 0) {
+  + ' && npm install && npm run build').code !== 0) {
   shell.echo('Error: build HandyNote-Web failed')
   shell.exit(1)
 }

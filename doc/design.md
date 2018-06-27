@@ -116,6 +116,7 @@ folderRoot: {
 HANDYNOTE_SERVICE_PORT
 HANDYNOTE_MONGO_URL
 HANDYNOTE_STATIC_ROOT
+HANDYNOTE_CERT_PATH
 
 # for build HandyNote-Web & HandyNote-Mobile
 HANDYNOTE_WEB_PORT (only apply for debug mode)
