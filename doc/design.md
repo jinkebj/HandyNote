@@ -95,6 +95,7 @@ hn-token: current user token
 hn-user: current user name
 hn-local-usn: local update sequence number for current user
 hn-base-api-url: base api url of connected HandyNote-Service
+hn-folder-list-cache: local folder list cache
 ```
 
 ### HandyNote-Web el-tree Node Structure
