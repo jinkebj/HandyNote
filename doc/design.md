@@ -137,8 +137,8 @@ HandyNote-Service API:
 1. GET /notes?skip_usn={num} to return notes with usn > skip_usn
 2. GET /folders?skip_usn={num} to return folders with usn > skip_usn
 3. GET /profiles return fields "latestUsn" to indicate the latest update sequence number on server
-4. POST /notes/action with {action: "filter_non_exist", ids: "xxx,yyy"} to get non-exist node id from the given ids
-5. POST /folders/action with {action: "filter_non_exist", ids: "xxx,yyy"} to get non-exist folder id from the given ids
+4. POST /notes/action with {action: "filter_non_exist", ids: ["xxx", "yyy"]} to get non-exist node id from the given ids
+5. POST /folders/action with {action: "filter_non_exist", ids: ["xxx", "yyy"]} to get non-exist folder id from the given ids
 ```
 
 HandyNote-Mobile:
